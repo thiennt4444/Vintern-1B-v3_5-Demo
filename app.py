@@ -198,7 +198,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, us
 def predict(state,
             image_path,
             max_input_tiles=6, 
-            temperature=1.0,
+            temperature=0.1, # 1.0
             max_output_tokens=700,
             top_p=0.7,
             repetition_penalty=2.5,
