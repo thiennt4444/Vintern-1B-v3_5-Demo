@@ -414,7 +414,7 @@ def ocr_bot(
         response, _ = predict(state,
                             all_image_paths[0] if len(all_image_paths) > 0 else None,
                             max_input_tiles, 
-                            temperature=0.1, 
+                            temperature, 
                             max_new_tokens,
                             top_p, 
                             repetition_penalty,
