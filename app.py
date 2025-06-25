@@ -37,7 +37,7 @@ torch.set_default_device('cuda')
 
 logger = build_logger("gradio_web_server", "gradio_web_server.log")
 
-headers = {"User-Agent": "Vintern-1B-3.5-Demo Client"}
+headers = {"User-Agent": "Vintern-3B-beta Client"}
 
 no_change_btn = gr.Button()
 enable_btn = gr.Button(interactive=True)
@@ -75,7 +75,7 @@ def vote_last_response(state, liked, request: gr.Request):
     conv_data = {
         "tstamp": round(time.time(), 4),
         "like": liked,
-        "model": 'Vintern-1B-v3_5',
+        "model": 'Vintern-3B-beta',
         "state": state.dict(),
         "ip": request.client.host,
     }
@@ -106,7 +106,7 @@ def vote_selected_response(
         "tstamp": round(time.time(), 4),
         "like": data.liked,
         "index": data.index,
-        "model": 'Vintern-1B-v3_5',
+        "model": 'Vintern-3B-beta',
         "state": state.dict(),
         "ip": request.client.host,
     }
@@ -454,7 +454,7 @@ def ocr_bot(
 title_html = """
 <div style="text-align: center;">
     <img src="https://cdn-uploads.huggingface.co/production/uploads/6336b5c831efcb5647f00170/-G297bBqMzYvTbD6_Bkd9.png" style="height: 95px; width: 100%;">
-    <p style="font-size: 20px;">❄️Vintern-1B-v3_5❄️</p>
+    <p style="font-size: 20px;">❄️Vintern-3B-beta❄️</p>
     <p style="font-size: 14px;">An Efficient Multimodal Large Language Model for Vietnamese🇻🇳</p>
     <a href="https://huggingface.co/papers/2408.12480" style="font-size: 13px;">[📖 Vintern Paper]</a>
     <a href="https://huggingface.co/5CD-AI" style="font-size: 13px;">[🤗 Huggingface]</a>
@@ -463,7 +463,7 @@ title_html = """
 
 description_html = """
 <div style="text-align: left;">
-    <p style="font-size: 12px;">Vintern-1B-v3.5 is the latest in the Vintern series, bringing major improvements over v2 across all benchmarks. This continuous fine-tuning Version enhances Vietnamese capabilities while retaining strong English performance. It excels in OCR, text recognition, and Vietnam-specific document understanding.</p>
+    <p style="font-size: 12px;">Vintern-3B-beta is the latest in the Vintern series, bringing major improvements over v2 across all benchmarks. This continuous fine-tuning Version enhances Vietnamese capabilities while retaining strong English performance. It excels in OCR, text recognition, and Vietnam-specific document understanding.</p>
 </div>
 """
 
@@ -547,7 +547,7 @@ def build_demo():
     )
 
     with gr.Blocks(
-        title="❄️ Vintern-1B-v3_5-Demo ❄️",
+        title="❄️ Vintern-3B-beta ❄️",
         theme="NoCrypt/miku",
         css=block_css,
         js=js,
@@ -651,7 +651,7 @@ def build_demo():
             with gr.Column(scale=8):
                 chatbot = gr.Chatbot(
                     elem_id="chatbot",
-                    label="Vintern-1B-v3_5-Demo",
+                    label="Vintern-3B-beta",
                     height=580,
                     show_copy_button=True,
                     show_share_button=True,
