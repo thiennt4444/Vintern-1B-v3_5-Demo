@@ -185,7 +185,7 @@ def add_text(state, message, system_prompt, request: gr.Request):
         disable_btn,
     ) * 5
 
-model_name = "5CD-AI/Vintern-1B-v3_5"
+model_name = "5CD-AI/Vintern-3B-beta"
 model = AutoModel.from_pretrained(
     model_name,
     torch_dtype=torch.bfloat16,
