@@ -37,7 +37,7 @@ torch.set_default_device('cuda')
 
 logger = build_logger("gradio_web_server", "gradio_web_server.log")
 
-headers = {"User-Agent": "Vintern-3B-beta Client"}
+headers = {"User-Agent": "Vintern-1B-3.5-Demo Client"}
 
 no_change_btn = gr.Button()
 enable_btn = gr.Button(interactive=True)
@@ -414,7 +414,7 @@ def ocr_bot(
         response, _ = predict(state,
                             all_image_paths[0] if len(all_image_paths) > 0 else None,
                             max_input_tiles, 
-                            temperature, 
+                            temperature=0.1, 
                             max_new_tokens,
                             top_p, 
                             repetition_penalty,
@@ -463,7 +463,7 @@ title_html = """
 
 description_html = """
 <div style="text-align: left;">
-    <p style="font-size: 12px;">Vintern-3B-beta is the latest in the Vintern series, bringing major improvements over v2 across all benchmarks. This continuous fine-tuning Version enhances Vietnamese capabilities while retaining strong English performance. It excels in OCR, text recognition, and Vietnam-specific document understanding.</p>
+    <p style="font-size: 12px;">Vintern-1B-v3.5 is the latest in the Vintern series, bringing major improvements over v2 across all benchmarks. This continuous fine-tuning Version enhances Vietnamese capabilities while retaining strong English performance. It excels in OCR, text recognition, and Vietnam-specific document understanding.</p>
 </div>
 """
 
@@ -547,7 +547,7 @@ def build_demo():
     )
 
     with gr.Blocks(
-        title="❄️ Vintern-3B-beta ❄️",
+        title="❄️ Vintern-3B-beta-Demo ❄️",
         theme="NoCrypt/miku",
         css=block_css,
         js=js,
@@ -651,7 +651,7 @@ def build_demo():
             with gr.Column(scale=8):
                 chatbot = gr.Chatbot(
                     elem_id="chatbot",
-                    label="Vintern-3B-beta",
+                    label="Vintern-3B-beta-Demo",
                     height=580,
                     show_copy_button=True,
                     show_share_button=True,
